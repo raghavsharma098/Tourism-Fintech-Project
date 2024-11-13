@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Team Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Container Styling */
+        .container2 {
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        /* Title Styling */
+        .topHead h2 {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Card Styling */
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        /* Card Image */
+        .card-img-top {
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        /* Card Title and Subtitle */
+        .card-title {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .card-subtitle {
+            color: #888;
+            font-style: italic;
+        }
+        
+        /* Connect Button */
+        .card-link {
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        
+        .card-link:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        /* Responsive Spacing */
+        .bottomDiv .col-md-6 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="forthLayout" id="itemDetail">
+        <div class="container2">
+            <hr><br>
+            <div class="topDiv">
+                <div class="topHead">
+                    <h2><span id="Item">Find</span> Teammates for Your Next Adventure</h2>
+                </div>
+            </div>
+
+            <div class="bottomDiv row">
+                <!-- Team Member Cards with Animations and Images -->
+                <div class="bottomLeft col-md-6">
+                    <div class="card mb-4" data-aos="flip-left">
+                        <img src="https://visafoto.com/img/passport-photo-with-shadows.webp" class="card-img-top" alt="Travel Blogger">
+                        <div class="card-body">
+                            <h5 class="card-title">Travel Blogger</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">John Doe</h6>
+                            <p class="card-text">
+                                <strong>Experience:</strong> 5+ Years of Travel Writing<br>
+                                <strong>Specialization:</strong> Adventure Travel & Photography<br>
+                                <strong>Availability:</strong> Weekends, Flexible<br>
+                            </p>
+                            <a href="#" class="card-link">+91xxxxxxxxxx</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4" data-aos="flip-left">
+                        <img src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/6b39933e-73ad-4b24-965c-17884b5a8e77/be9da804-63a0-4d5c-8a09-af29209133ce.png" class="card-img-top" alt="Tour Guide">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour Guide</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Jane Smith</h6>
+                            <p class="card-text">
+                                <strong>Experience:</strong> 8+ Years of Guiding Groups<br>
+                                <strong>Specialization:</strong> Historical Sites & Cultural Tours<br>
+                                <strong>Availability:</strong> Weekdays, Flexible
+                            </p>
+                            <a href="#" class="card-link">+91xxxxxxxxxx</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Column of Team Member Cards -->
+                <div class="bottomRight col-md-6">
+                    <div class="card mb-4" data-aos="flip-right">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMSaBywLL30222YKkQgJY1q8unJjjVV96HP-M-dv20CExhJ9m45huZ-5N7zy9FKqVwFk&usqp=CAU" class="card-img-top" alt="Local Chef">
+                        <div class="card-body">
+                            <h5 class="card-title">Local Chef</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Maria Gonzalez</h6>
+                            <p class="card-text">
+                                <strong>Experience:</strong> 6+ Years of Local Cuisine<br>
+                                <strong>Specialization:</strong> Regional Dishes and Street Food<br>
+                                <strong>Availability:</strong> Evenings and Weekends
+                            </p>
+                            <a href="#" class="card-link">+91xxxxxxxxxx</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4" data-aos="flip-right">
+                        <img src="data:image/jpeg;base64,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   " class="card-img-top" alt="Language Translator">
+                        <div class="card-body">
+                            <h5 class="card-title">Language Translator</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Sophia Lee</h6>
+                            <p class="card-text">
+                                <strong>Experience:</strong> 4+ Years of Translation Services<br>
+                                <strong>Languages:</strong> Spanish, French, and English<br>
+                                <strong>Availability:</strong> Flexible, Remote
+                            </p>
+                            <a href="#" class="card-link">+91xxxxxxxxxx </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts for AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS animations
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Expenses</h1>
+        <a href="/">Back to Home</a>
+    </header>
+    <form action="/expenses" method="POST">
+        <input type="number" name="amount" placeholder="Amount" required>
+        <textarea name="description" placeholder="Expense Description" required></textarea>
+        <button type="submit">Add Expense</button>
+    </form>
+    <h2>Your Existing Expenses:</h2>
+    <ul>
+        <% expenses.forEach(expense => { %>
+            <li>
+                <p><%= expense.amount %> - <%= expense.description %></p>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

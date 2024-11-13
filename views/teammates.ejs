@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom styling for form -->
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        body {
+            background-image: url("https://images.squarespace-cdn.com/content/v1/6541335dafb94033843ba98b/1384180d-baa4-463b-929c-ef8b8dd934df/charlotte-noelle-98WPMlTl5xo-unsplash.jpg?format=1500w");            
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1 class="form-header">Register</h1>
+
+        <!-- Form Starts Here -->
+        <form id="registerForm">
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="first name">
+                <span class="error" id="firstNameError"></span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="last name">
+                <span class="error" id="lastNameError"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="birthday">
+                <span class="error" id="dobError"></span>
+            </div>
+
+            <!-- Aadhar Card Upload -->
+            <div class="form-group">
+                <label for="aadharCard">Aadhar Card</label>
+                <input type="file" class="form-control-file" id="aadharCard" name="upload">
+                <span class="error" id="aadharCardError"></span>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address">
+                <span class="error" id="addressError"></span>
+            </div>
+
+            <!-- Location Selection -->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <select class="form-control" id="location">
+                    <option value="">Select Location</option>
+                    <optgroup label="INDIA">
+                        <option>Jaipur</option>
+                        <option>Udaipur</option>
+                        <option>Ajmer</option>
+                        <option>Surat</option>
+                        <option>Pune</option>
+                        <option>Bangalore</option>
+                        <option>Baroda</option>
+                        <option>Mumbai</option>
+                        <option>Nagpur</option>
+                    </optgroup>
+                    <optgroup label="USA">
+                        <option>New York</option>
+                        <option>Chicago</option>
+                        <option>Los Angeles</option>
+                    </optgroup>
+                    <optgroup label="RUSSIA">
+                        <option>Moscow</option>
+                        <option>Saint Petersburg</option>
+                        <option>Kazan</option>
+                    </optgroup>
+                </select>
+                <span class="error" id="locationError"></span>
+            </div>
+
+            <!-- Gender Selection -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+                <span class="error" id="genderError"></span>
+            </div>
+
+            <!-- Submit and Reset Buttons -->
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <!-- Go Back Link -->
+            <div class="text-center">
+                <a href="/" class="btn btn-link">Go Back!</a>
+            </div>
+
+            <!-- Notification Message -->
+            <h2 class="text-center mt-4">Once your appointment gets fixed, you will be notified by <strong>E-mail</strong>.</h2>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for form validation and redirect -->
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            // Form Validation
+            let isValid = true;
+
+            // Clear previous error messages
+            document.querySelectorAll('.error').forEach(span => span.innerText = '');
+
+            // Check each field
+            if (document.getElementById("firstName").value.trim() === "") {
+                document.getElementById("firstNameError").innerText = "First name is required.";
+                isValid = false;
+            }
+            if (document.getElementById("lastName").value.trim() === "") {
+                document.getElementById("lastNameError").innerText = "Last name is required.";
+                isValid = false;
+            }
+            if (document.getElementById("email").value.trim() === "") {
+                document.getElementById("emailError").innerText = "Email is required.";
+                isValid = false;
+            }
+            if (document.getElementById("dob").value.trim() === "") {
+                document.getElementById("dobError").innerText = "Date of birth is required.";
+                isValid = false;
+            }
+            if (document.getElementById("aadharCard").files.length === 0) {
+                document.getElementById("aadharCardError").innerText = "Aadhar card is required.";
+                isValid = false;
+            }
+            if (document.getElementById("address").value.trim() === "") {
+                document.getElementById("addressError").innerText = "Address is required.";
+                isValid = false;
+            }
+            if (document.getElementById("location").value === "") {
+                document.getElementById("locationError").innerText = "Location is required.";
+                isValid = false;
+            }
+            if (!document.querySelector('input[name="gender"]:checked')) {
+                document.getElementById("genderError").innerText = "Gender is required.";
+                isValid = false;
+            }
+
+            // Redirect if the form is valid
+            if (isValid) {
+                window.location.href = '/find';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <h1>Dashboard: Your Travel Plans and Analytics</h1>
+
+    <!-- Display Tips for Trip Planning -->
+    <h3>Tips and Tricks for a Successful Trip:</h3>
+    <ul>
+      <% tips.forEach(tip => { %>
+        <li><%= tip %></li>
+      <% }) %>
+    </ul>
+
+    <!-- Display Recent Trips -->
+    <h3>Your Recent Trips:</h3>
+    <ul>
+      <% recentTrips.forEach(trip => { %>
+        <li>
+          <strong><%= trip.destinationName %></strong><br>
+          Trip Duration: <%= trip.tripDuration %> days<br>
+          Total Cost: ₹<%= trip.totalCost %><br>
+          <a href="/trip-details/<%= trip.destinationName %>">View Details</a>
+        </li>
+      <% }) %>
+    </ul>
+
+    <!-- Display Current Trip -->
+    <h3>Current Trip: <%= currentTrip.destinationName %></h3>
+    <p>
+      Start Date: <%= currentTrip.startDate %><br>
+      End Date: <%= currentTrip.endDate %><br>
+      Estimated Cost: ₹<%= currentTrip.estimatedCost %>
+    </p>
+
+    <!-- Display Trip Itinerary -->
+    <h4>Itinerary:</h4>
+    <ul>
+      <% currentTrip.itinerary.forEach(activity => { %>
+        <li>
+          <strong><%= activity.activity %></strong><br>
+          Time: <%= activity.time %> | Cost: ₹<%= activity.cost %>
+        </li>
+      <% }) %>
+    </ul>
+
+    <!-- Display Performance Analysis (Budget & Satisfaction) -->
+    <h3>Performance Analysis</h3>
+    <canvas id="performanceChart" width="400" height="200"
+      data-budget-analysis="<%= JSON.stringify(performanceData.budgetAnalysis) %>"
+      data-satisfaction="<%= JSON.stringify(performanceData.satisfaction) %>"
+      data-activities-completion="<%= JSON.stringify(performanceData.activitiesCompletion) %>">
+    </canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Retrieve data from the canvas element's custom data attributes
+      const canvas = document.getElementById('performanceChart');
+      const budgetAnalysis = JSON.parse(canvas.getAttribute('data-budget-analysis'));
+      const satisfaction = JSON.parse(canvas.getAttribute('data-satisfaction'));
+      const activitiesCompletion = JSON.parse(canvas.getAttribute('data-activities-completion'));
+
+      console.log(budgetAnalysis, satisfaction, activitiesCompletion);  // Debug log
+
+      // Create the chart using Chart.js
+      const ctx = canvas.getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'line',  // Use line chart
+        data: {
+          labels: ['Trip 1', 'Trip 2', 'Trip 3', 'Trip 4', 'Trip 5'],  // Labels for X-axis (can be based on user trips)
+          datasets: [{
+            label: 'Budget Analysis (Actual vs. Estimated)',
+            data: budgetAnalysis,  // Budget analysis data
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false
+          }, {
+            label: 'Satisfaction (User Feedback)',
+            data: satisfaction,  // Satisfaction scores (1-5 scale)
+            borderColor: 'rgb(255, 99, 132)',
+            fill: false
+          }, {
+            label: 'Activities Completion',
+            data: activitiesCompletion,  // Percentage of activities completed during trips
+            borderColor: 'rgb(54, 162, 235)',
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+  </div>
+</div>

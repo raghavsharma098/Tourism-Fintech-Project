@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Trip Plan</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">  <!-- Custom styles if needed -->
+    <style>
+        body{
+            background-image: url("https://plus.unsplash.com/premium_photo-1661963054563-ce928e477ff3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amFpcHVyfGVufDB8fDB8fHww");
+            background-size: cover; /* Ensures the image covers the entire body */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background stay in place during scrolling */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Transportation Options</h1>
+
+        <!-- Flights Section -->
+        <h3 class="mb-3">Flights</h3>
+        <% if (transportOptions && transportOptions.flights && transportOptions.flights.length > 0) { %>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Flight</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Price (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% transportOptions.flights.forEach(flight => { %>
+                        <tr>
+                            <td><%= flight.flightName %></td>
+                            <td><%= flight.departureAirport %> <br> <%= flight.departureTime %></td>
+                            <td><%= flight.arrivalAirport %> <br> <%= flight.arrivalTime %></td>
+                            <td><%= flight.price %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No flights available.</p>
+        <% } %>
+
+        <!-- Trains Section -->
+        <h3 class="mb-3">Trains</h3>
+        <% if (transportOptions && transportOptions.trains && transportOptions.trains.length > 0) { %>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Train</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Price (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% transportOptions.trains.forEach(train => { %>
+                        <tr>
+                            <td><%= train.trainName %></td>
+                            <td><%= train.departureStation %> <br> <%= train.departureTime %></td>
+                            <td><%= train.arrivalStation %> <br> <%= train.arrivalTime %></td>
+                            <td><%= train.price %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No trains available.</p>
+        <% } %>
+
+        <!-- Buses Section -->
+        <h3 class="mb-3">Buses</h3>
+        <% if (transportOptions && transportOptions.buses && transportOptions.buses.length > 0) { %>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Bus</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Price (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% transportOptions.buses.forEach(bus => { %>
+                        <tr>
+                            <td><%= bus.busName %></td>
+                            <td><%= bus.departurePoint %> <br> <%= bus.departureTime %></td>
+                            <td><%= bus.arrivalPoint %> <br> <%= bus.arrivalTime %></td>
+                            <td><%= bus.price %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No buses available.</p>
+        <% } %>
+    </div>
+
+    <!-- Include Bootstrap JS (optional for interactive features like dropdowns, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

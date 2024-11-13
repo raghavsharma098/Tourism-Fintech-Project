@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Background and Navbar */
+        body {
+            background-color: #f4f4f4;
+            color: #444;
+        }
+        .navbar {
+            background-color: #222;
+        }
+        .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* Hero Section */
+        .jumbotron {
+            padding: 3rem 2rem;
+            margin-bottom: 0;
+            background: url("https://t4.ftcdn.net/jpg/05/05/51/25/360_F_505512599_D6ulJI9hV6aGTP04FPC2XDk5QHGOQtpW.jpg") center/cover;
+            color: #fff;
+            text-align: center;
+        }
+        .jumbotron .btn-primary {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Section Styling */
+        .container {
+            margin-top: 2rem;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border: none;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            color: #2c3e50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 2rem;
+            text-align: center;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-primary:hover, .btn-success:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" data-aos="fade-down">
+        <a class="navbar-brand" href="#">Tourism Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/plans">Plan Your Trip</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron" data-aos="fade-up">
+        <h1 class="display-4">Welcome to Tourism Hub</h1>
+        <p class="lead">Your one-stop solution for planning memorable trips.</p>
+        <a class="btn btn-primary btn-lg" href="/register" role="button">Register Now!</a>
+    </div>
+
+    <!-- Featured Trip Plans -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4" data-aos="fade-up">Featured Trip Plans</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/510978989/photo/hawa-mahal-palace-in-jaipur-rajasthan.jpg?s=612x612&w=0&k=20&c=-2ijZ9kpofMH1jJhaxFF1hJ5oqjdXfOtIu0BlwXwdls=" class="card-img-top" alt="Trip 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Jaipur</h5>
+                        <p class="card-text">Explore the rich culture and heritage of Jaipur.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg" class="card-img-top" alt="Trip 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Agra</h5>
+                        <p class="card-text">Discover the history and beauty of Agra.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz8fLERsmm-PB-dYJj9mkWCka5IITN3vkcTQ&s" class="card-img-top" alt="Trip 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Trip to Goa</h5>
+                        <p class="card-text">Relax on the beautiful beaches of Goa.</p>
+                        <a href="/trip-plan" class="btn btn-primary">Plan Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer data-aos="fade-up">
+        <p>&copy; 2024 Tourism Hub | All Rights Reserved</p>
+        <a href="/teammates" class="btn btn-success" data-aos="zoom-in">Find Travel Buddy?</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Animation occurs only once as you scroll down
+        });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/11/13/06/20241113061923-1EPJBWCV.js"></script>
+</body>
+</html>

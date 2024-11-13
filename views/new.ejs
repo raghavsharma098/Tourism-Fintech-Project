@@ -1,0 +1,64 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h2>Create New Trip Listing</h2>
+        <form method="POST" action="/dashboard">
+            <!-- Trip Information -->
+            <h3>Trip Information</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="destination" class="form-label">Destination:</label>
+                    <input type="text" name="destination" class="form-control" placeholder="Enter destination" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="startDate" class="form-label">Start Date:</label>
+                    <input type="date" name="startDate" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="endDate" class="form-label">End Date:</label>
+                    <input type="date" name="endDate" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="estimatedCost" class="form-label">Estimated Cost (INR):</label>
+                    <input type="number" name="estimatedCost" class="form-control" placeholder="e.g. 5000" required>
+                </div>
+            </div>
+
+            <!-- Trip Details -->
+            <h3>Trip Details</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="location" class="form-label">Location:</label>
+                    <input type="text" name="location" class="form-control" placeholder="Enter location" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" name="country" class="form-control" placeholder="e.g. India" required>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <h3>Trip Image</h3>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="image" class="form-label">Image URL:</label>
+                    <input type="text" name="image" class="form-control" placeholder="Enter image URL" required>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <h3>Additional Information</h3>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="additionalDetails" class="form-label">Additional Details (optional):</label>
+                    <textarea name="additionalDetails" class="form-control" rows="4" placeholder="e.g. activities included, special offers, etc."></textarea>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+</div>

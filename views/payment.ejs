@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Buy Button with Animation</title>
+    <style>
+        /* Center the button within the container */
+        .stripe-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f5;
+        }
+
+        /* Button glow and scale animation */
+        stripe-buy-button {
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        stripe-buy-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(50, 150, 250, 0.5);
+        }
+
+        /* Pulse effect */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Floating effect */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body>
+
+<div class="stripe-button-container">
+    <stripe-buy-button
+      buy-button-id="buy_btn_1QKcC3FNkUEtmK0pHhdHZW2x"
+      publishable-key="pk_test_51QKbqCFNkUEtmK0pcgeQ4TYVOqspKBt7cLLckNfZNUepEvdWVIgVr7PsIPrSK4b039JMuPl4bGS7MToiHgWgfxsj00on68iTkb">
+    </stripe-buy-button>
+</div>
+
+</body>
+</html>

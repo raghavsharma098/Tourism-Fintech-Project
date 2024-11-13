@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <br>
+        <h2>Edit Your Trip</h2>
+        <form method="post" action="/trips/<%= trip._id %>?_method=PUT" novalidate class="needs-validation">
+            
+            <!-- Trip Destination -->
+            <div class="mb-3">
+                <label for="destination" class="form-label">Trip Destination</label>
+                <input name="destination" value="<%= trip.destination %>" type="text" class="form-control" required>
+                <div class="valid-feedback">Destination looks good!</div>
+            </div>
+            
+            <!-- Start Date -->
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input name="startDate" value="<%= trip.startDate %>" type="date" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid start date.</div>
+            </div>
+
+            <!-- End Date -->
+            <div class="mb-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input name="endDate" value="<%= trip.endDate %>" type="date" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid end date.</div>
+            </div>
+
+            <!-- Estimated Cost -->
+            <div class="mb-3">
+                <label for="estimatedCost" class="form-label">Estimated Cost (INR)</label>
+                <input name="estimatedCost" value="<%= trip.estimatedCost %>" type="number" class="form-control" required>
+                <div class="invalid-feedback">Please enter valid cost.</div>
+            </div>
+
+            <!-- Actual Cost -->
+            <div class="mb-3">
+                <label for="actualCost" class="form-label">Actual Cost (INR)</label>
+                <input name="actualCost" value="<%= trip.actualCost %>" type="number" class="form-control" required>
+                <div class="invalid-feedback">Please enter valid cost.</div>
+            </div>
+
+            <!-- Trip Location -->
+            <div class="mb-3">
+                <label for="location" class="form-label">Trip Location</label>
+                <input name="location" value="<%= trip.location %>" type="text" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid location.</div>
+            </div>
+
+            <!-- Image Link -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Image Link</label>
+                <input name="image" value="<%= trip.image %>" type="text" class="form-control" required>
+            </div>
+
+            <!-- Trip Itinerary -->
+            <h5>Itinerary:</h5>
+            <% if (trip.itinerary && trip.itinerary.length > 0) { %>
+                <% trip.itinerary.forEach((activity, index) => { %>
+                    <div class="mb-3">
+                        <label for="activity<%= index %>" class="form-label">Activity</label>
+                        <input name="itinerary[<%= index %>][activity]" value="<%= activity.activity %>" type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="time<%= index %>" class="form-label">Time</label>
+                        <input name="itinerary[<%= index %>][time]" value="<%= activity.time %>" type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cost<%= index %>" class="form-label">Activity Cost (INR)</label>
+                        <input name="itinerary[<%= index %>][cost]" value="<%= activity.cost %>" type="number" class="form-control" required>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No itinerary data available. Add itinerary details.</p>
+            <% } %>
+
+            <!-- Trip Performance (e.g., satisfaction or completion rate) -->
+            <h5>Trip Performance:</h5>
+            <div class="mb-3">
+                <label for="satisfaction" class="form-label">Satisfaction Rating (1-5)</label>
+                <input name="performance[satisfaction]" value="<%= trip.performance.satisfaction %>" type="number" step="0.1" min="1" max="5" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid satisfaction rating between 1 and 5.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="completionRate" class="form-label">Completion Rate (%)</label>
+                <input name="performance[completionRate]" value="<%= trip.performance.completionRate %>" type="number" step="1" min="0" max="100" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid completion rate between 0 and 100.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="btn-one mt-3">Update Trip</button>
+            <br><br>
+        </form>   
+    </div>     
+</div>

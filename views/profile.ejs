@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h2>Your Saved Trips</h2>
+    <% if (trips && trips.length > 0) { %>
+        <% trips.forEach(trip => { %>
+            <div>
+                <h3>Your Saved Trip</h3>
+                <p>Total Budget: <%= trip.totalBudget %></p>
+                <p>Trip Days: <%= trip.tripDays %></p>
+                <p>Daily Budget: <%= trip.dailyBudget %></p>
+                <p>Flights: <%= JSON.stringify(trip.flights) %></p>
+                <p>Itinerary: <%= JSON.stringify(trip.itinerary) %></p>
+                <p>Expenses: <%= JSON.stringify(trip.expenses) %></p>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No trips found.</p>
+    <% } %>
+    
+
+
+    
+    
+</body>
+</html>
