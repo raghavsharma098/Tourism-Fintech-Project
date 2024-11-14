@@ -19,7 +19,7 @@
   Organize and save your trips based on budget, preferences, and travel dates.
 
 - **💳 Secure Payment Gateway**  
-  Seamless integration with MetaMask for secure payments and bookings.
+  Seamless integration with Stripe for secure payments and bookings.
 
 - **🤖 Chatbot Assistance**  
   24/7 chatbot support to answer all travel-related queries.
@@ -40,7 +40,7 @@
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap  
 - **Backend**: Node.js, Express  
 - **Database**: MongoDB  
-- **Payment Gateway**: MetaMask  
+- **Payment Gateway**: Stripe 
 - **Additional Libraries**: Mongoose, Bootstrap
 
 ---
