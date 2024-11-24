@@ -93,6 +93,10 @@ app.get('/profile', isAuthenticated, async (req, res) => {
     }
 });
 
+app.get('/teammates', (req, res) => {
+    res.render('teammates'); // Render the teammates page when this route is accessed
+});
+
 app.post('/save-trip', isAuthenticated, async (req, res) => {
     const { plan, expenses } = req.body;
 
