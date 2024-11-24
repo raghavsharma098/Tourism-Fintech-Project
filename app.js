@@ -306,7 +306,7 @@ app.post('/plan-trip', (req, res) => {
   const itinerary = [];
   for (let i = 0; i < tripDays; i++) {
       itinerary.push({
-          day: Day ${i + 1},
+         day: `Day ${i + 1}`,
           activity: Explore popular spots and enjoy local activities on Day ${i + 1},
           expectedExpense: dailyBudget.toFixed(2)
       });
