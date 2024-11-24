@@ -303,14 +303,15 @@ app.post('/plan-trip', (req, res) => {
   ];
 
   // Generate an itinerary with sample activities for each day
-  const itinerary = [];
-  for (let i = 0; i < tripDays; i++) {
-      itinerary.push({
-         day: `Day ${i + 1}`,
-          activity: Explore popular spots and enjoy local activities on Day ${i + 1},
-          expectedExpense: dailyBudget.toFixed(2)
-      });
-  }
+const itinerary = [];
+for (let i = 0; i < tripDays; i++) {
+    itinerary.push({
+        day: `Day ${i + 1}`,
+        activity: `Explore popular spots and enjoy local activities on Day ${i + 1}`, // Corrected this line
+        expectedExpense: dailyBudget.toFixed(2)
+    });
+}
+
 
   // Store the plan in memory for rendering on the trip plan page
   plan = {
