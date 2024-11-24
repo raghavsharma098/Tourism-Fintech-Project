@@ -83,6 +83,10 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.post('/payment', (req, res) => {
+    res.render('payment');
+});
+
 app.get('/find', (req, res) => {
     res.render('find');  // Assuming 'find.ejs' exists in the 'views' directory
 });
